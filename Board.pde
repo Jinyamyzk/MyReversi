@@ -83,7 +83,7 @@ class Board {
         ArrayList<Cell> cellsInDir = this.getCellsInDirection(cell, dCol, dRow);
         ArrayList<Cell> checked = new ArrayList<Cell>();
         for(Cell c: cellsInDir) {
-           if(c.stone == 0){
+           if(!c.hasStone()){
                  break;
             }
             // 色が違う場合はいったん配列に入れる
@@ -92,8 +92,8 @@ class Board {
             }
             // 同じ色の石がみつかったら返却する配列にそこまでの石を入れてループを抜ける
             if(c.stone == stone){
-               for(Object toFlip: checked){
-                 cellsToFlip.add((Cell) toFlip);
+               for(Cell toFlip: checked){
+                 cellsToFlip.add(toFlip);
                }
                break;
             }

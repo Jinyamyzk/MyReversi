@@ -19,6 +19,7 @@ void draw() {
 
 void mouseClicked() {
   Cell cell = board.getCellAtXY(mouseX, mouseY); 
+  println(cell.col,cell.row);
   ArrayList<Cell> cellsToFlip = board.cellsToFlipWith(cell, stoneColor);
 
   //引っ繰り返せるマスがある場合は石が置ける
@@ -43,7 +44,10 @@ void mouseClicked() {
 
 void turnForAi() {
     // 置くマスを考えてかえす
-  Cell cell = ai.think();  
+  Cell cell = ai.think(board, stoneColor);  
+  //Cell cell = board.getCellAt(_cell.col, _cell.row);
+  println(cell.row,cell.col);
+  
   // そこに置いた場合にひっくりかえすマス
   ArrayList<Cell> cellsToFlip = board.cellsToFlipWith(cell, stoneColor);
 

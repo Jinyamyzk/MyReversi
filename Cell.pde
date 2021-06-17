@@ -37,6 +37,10 @@ class Cell {
   void putStone(int stoneColor){
     stone = stoneColor;  
   }
+  
+  void removeStone(){
+    stone = 0;
+  }
 
   void flip() {
     stone *= -1;
